@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Market Map — Real Market Data</title>
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      script-src 'self';
+      style-src 'self' 'unsafe-inline';
+      img-src 'self' data: https://mariociavarella.com https://www.mariociavarella.com;
+      font-src 'self';
+      connect-src 'self';
+      base-uri 'self';
+      form-action 'self';
+    " />
+    <link rel="icon" type="image/png" sizes="192x192" href="https://mariociavarella.com/mario-favicon.png?v=3" />
+    <style>
+      :root { color-scheme: light dark; background-color: #eef3f8; }
+      :root[data-theme="light"] { color-scheme: light; background-color: #eef3f8; }
+      @media (prefers-color-scheme: dark) { :root { background-color: #11151c; } }
+      :root[data-theme="dark"] { color-scheme: dark; background-color: #11151c; }
+    </style>
+    <link href="css/marketmap.css" rel="stylesheet" />
+    <link href="assets/react/console-actions.css" rel="stylesheet" />
+    <link as="font" crossorigin href="assets/fonts/Inter-Variable.woff2" rel="preload" type="font/woff2" />
+    <link href="assets/react/asset-grid.js" rel="modulepreload" />
+    <link href="assets/react/console-actions.js" rel="modulepreload" />
+    <link href="assets/react/toolbar.js" rel="modulepreload" />
+    <link href="assets/react/toast-host.js" rel="modulepreload" />
+    <link href="assets/react/instrument-detail.js" rel="modulepreload" />
+    <link href="assets/react/add-instrument.js" rel="modulepreload" />
+  </head>
+  <body style="margin: 0;">
+    <div class="marketmap-app" data-marketmap-root></div>
+    <script type="module" src="./src/core/standalone.js"></script>
+  </body>
+</html>

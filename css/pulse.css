@@ -1,0 +1,138 @@
+/* scoped: marketmap-app */
+@layer components {
+  .marketmap-app .mm-pulse-band {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--mm-space-4);
+    margin: 0 0 var(--mm-space-5);
+    padding-bottom: var(--mm-space-4);
+    border-bottom: 1px solid var(--mm-line);
+  }
+
+  .marketmap-app .mm-pulse {
+    display: flex;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    align-items: center;
+    min-width: 0;
+    margin: 0;
+  }
+
+  .marketmap-app .mm-stat {
+    display: grid;
+    min-width: 0;
+    grid-template-rows: auto auto 3px;
+    align-content: start;
+    gap: 3px;
+    padding: var(--mm-space-1) var(--mm-space-4);
+    border-inline-start: 1px solid var(--mm-line);
+  }
+
+  .marketmap-app .mm-stat:first-child {
+    padding-inline-start: 0;
+    border-inline-start: 0;
+  }
+
+  .marketmap-app .mm-stat__label {
+    overflow: hidden;
+    color: var(--mm-muted);
+    font-size: 0.625rem;
+    font-weight: 650;
+    letter-spacing: 0.07em;
+    line-height: 1.3;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .marketmap-app .mm-stat__value {
+    overflow: hidden;
+    max-width: 100%;
+    color: var(--mm-ink);
+    font-size: clamp(1rem, 0.9rem + 0.4cqi, 1.15rem);
+    font-weight: 660;
+    font-variant-numeric: tabular-nums lining-nums;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .marketmap-app .mm-stat__value.positive { color: var(--mm-gain); }
+  .marketmap-app .mm-stat__value.negative { color: var(--mm-loss); }
+  .marketmap-app .mm-stat__value.neutral { color: var(--mm-ink); }
+
+  .marketmap-app .mm-stat__value--leading {
+    overflow: visible;
+    text-overflow: clip;
+    overflow-wrap: anywhere;
+    white-space: normal;
+  }
+
+  .marketmap-app .mm-stat__value > .positive { color: var(--mm-gain); }
+  .marketmap-app .mm-stat__value > .negative { color: var(--mm-loss); }
+
+  .marketmap-app .mm-stat__spread-action {
+    appearance: none;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    font: inherit;
+    letter-spacing: inherit;
+  }
+
+  .marketmap-app .mm-stat__slash {
+    margin-inline: 0.3rem;
+    color: var(--mm-muted);
+    font-weight: 420;
+  }
+
+  .marketmap-app .mm-stat__bar {
+    display: flex;
+    gap: 2px;
+    height: 3px;
+  }
+
+  .marketmap-app .mm-stat__bar > span {
+    flex: 0 1 0%;
+    border-radius: 999px;
+  }
+
+  .marketmap-app .mm-stat__bar > [data-side="up"] { background: var(--mm-gain); }
+  .marketmap-app .mm-stat__bar > [data-side="flat"] { background: color-mix(in srgb, var(--mm-muted) 55%, transparent); }
+  .marketmap-app .mm-stat__bar > [data-side="down"] { background: var(--mm-loss); }
+
+  .marketmap-app .mm-stat__value--action {
+    appearance: none;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    font-family: inherit;
+    text-align: left;
+  }
+
+  .marketmap-app .mm-stat__value--action:disabled,
+  .marketmap-app .mm-stat__spread-action:disabled {
+    cursor: default;
+  }
+
+  .marketmap-app .mm-stat__value--action:not(:disabled):hover,
+  .marketmap-app .mm-stat__value--action:focus-visible,
+  .marketmap-app .mm-stat__spread-action:not(:disabled):hover,
+  .marketmap-app .mm-stat__spread-action:focus-visible {
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, currentColor 55%, transparent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 5px;
+  }
+
+  .marketmap-app .mm-stat__value--action:focus-visible,
+  .marketmap-app .mm-stat__spread-action:focus-visible {
+    outline: 2px solid var(--mm-focus);
+    outline-offset: 2px;
+  }
+
+}

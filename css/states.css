@@ -1,0 +1,31 @@
+/* scoped: marketmap-app */
+@layer states {
+  .marketmap-app .data-quality-badge {
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    color: var(--mm-muted);
+    font-size: 0.62rem;
+    font-weight: 620;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+  }
+
+  .marketmap-app .data-quality-badge::before {
+    content: "";
+    width: 0.35rem;
+    height: 0.35rem;
+    flex: none;
+    border-radius: 50%;
+    background: var(--mm-quality-unavailable);
+  }
+
+  .marketmap-app .data-quality-badge.quality-fresh::before { background: var(--mm-quality-current); }
+  .marketmap-app .data-quality-badge.quality-delayed::before { background: var(--mm-quality-delayed); }
+  .marketmap-app .data-quality-badge.quality-stale::before { background: var(--mm-quality-confirmed); }
+  .marketmap-app .data-quality-badge.quality-unavailable::before { background: var(--mm-quality-unavailable); }
+}

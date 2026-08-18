@@ -1,0 +1,118 @@
+/* scoped: marketmap-app */
+@layer base {
+  .marketmap-app,
+  .marketmap-app *,
+  .marketmap-app *::before,
+  .marketmap-app *::after {
+    box-sizing: border-box;
+  }
+
+  .marketmap-app * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .marketmap-app {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    overflow-x: clip;
+    isolation: isolate;
+    background-color: var(--mm-bg);
+    background-image: var(--mm-bg-ambient);
+    color: var(--mm-ink);
+    font-family: var(--mm-font-sans);
+    font-feature-settings: "ss02", "cv02", "case", "tnum";
+    letter-spacing: -0.008em;
+    text-rendering: optimizeLegibility;
+  }
+
+  .marketmap-app .container {
+    position: relative;
+    z-index: var(--mm-z-base);
+    width: min(100% - clamp(1.25rem, 4vw, 3rem), var(--mm-content-wide));
+    margin-inline: auto;
+    padding: clamp(2.75rem, 6vw, 5rem) 0 clamp(5rem, 8vw, 7rem);
+    container: marketmap / inline-size;
+  }
+
+  .marketmap-app .mm-skip-board {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .marketmap-app .mm-skip-board:focus-visible {
+    position: static;
+    display: inline-block;
+    width: auto;
+    height: auto;
+    margin: 0 0 var(--mm-space-3);
+    padding: var(--mm-space-2) var(--mm-space-4);
+    border: 1px solid var(--mm-control-border);
+    border-radius: var(--mm-radius-pill);
+    overflow: visible;
+    clip-path: none;
+    background: var(--mm-surface-card);
+    color: var(--mm-ink);
+    font-size: var(--mm-text-sm);
+    font-weight: 650;
+    outline: 2px solid var(--mm-focus);
+    outline-offset: 2px;
+    text-decoration: none;
+  }
+
+  .marketmap-app .page-footer {
+    position: relative;
+    z-index: var(--mm-z-base);
+    width: min(100% - 2rem, var(--mm-content-wide));
+    margin: 0 auto;
+    padding: 0 0 var(--mm-space-6);
+    color: var(--mm-muted);
+    text-align: center;
+  }
+
+  .marketmap-app .footer-copyright {
+    font-size: var(--mm-text-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .marketmap-app {
+    scrollbar-color: color-mix(in srgb, var(--mm-muted) 42%, transparent) transparent;
+    scrollbar-width: thin;
+  }
+
+  .marketmap-app ::-webkit-scrollbar { width: 10px; }
+
+  .marketmap-app ::-webkit-scrollbar-track { background: transparent; }
+
+  .marketmap-app ::-webkit-scrollbar-thumb {
+    border: 2px solid transparent;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--mm-muted) 42%, transparent);
+    background-clip: padding-box;
+  }
+
+  .marketmap-app ::-webkit-scrollbar-thumb:hover {
+    background: color-mix(in srgb, var(--mm-accent) 62%, transparent);
+    background-clip: padding-box;
+  }
+
+  @media (min-width: 48rem) and (prefers-reduced-motion: no-preference) {
+    .marketmap-app {
+      background-attachment: fixed;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .marketmap-app .container {
+      width: min(100% - 1.25rem, var(--mm-content-wide));
+      padding-top: 2.25rem;
+    }
+  }
+}

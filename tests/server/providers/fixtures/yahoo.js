@@ -1,0 +1,185 @@
+export const FIXED_NOW = Date.parse("2026-07-13T20:00:00.000Z");
+
+export const YAHOO_AAPL_QUOTE = Object.freeze({
+  symbol: "AAPL",
+  quoteType: "EQUITY",
+  regularMarketPrice: 317.31,
+  regularMarketChange: 1.99,
+  regularMarketChangePercent: 0.6311,
+  regularMarketOpen: 317.01,
+  regularMarketPreviousClose: 315.32,
+  regularMarketDayHigh: 323.45,
+  regularMarketDayLow: 315.78,
+  bid: 316.03,
+  ask: 317.96,
+  regularMarketVolume: 41_376_714,
+  averageDailyVolume3Month: 54_682_654,
+  marketState: "POST",
+  regularMarketTime: new Date("2026-07-13T19:59:00.000Z"),
+  currency: "USD",
+  exchangeDataDelayedBy: 0,
+  quoteSourceName: "Nasdaq Real Time Price",
+});
+
+export const YAHOO_SEARCH_RESULTS = Object.freeze({
+  quotes: [
+    {
+      symbol: "AAPL",
+      isYahooFinance: true,
+      quoteType: "EQUITY",
+      exchange: "NMS",
+      exchDisp: "NASDAQ",
+      shortname: "Apple Inc.",
+      longname: "Apple Inc.",
+      score: 100,
+      index: "quotes",
+    },
+    {
+      symbol: "PLTR",
+      isYahooFinance: true,
+      quoteType: "EQUITY",
+      exchange: "NMS",
+      exchDisp: "NASDAQ",
+      shortname: "Palantir Technologies Inc.",
+      longname: "Palantir Technologies Inc.",
+      sector: "Technology",
+      industry: "Software - Infrastructure",
+      score: 95,
+      index: "quotes",
+    },
+    {
+      symbol: "PLTR",
+      isYahooFinance: true,
+      quoteType: "EQUITY",
+      exchange: "NMS",
+      exchDisp: "NASDAQ",
+      shortname: "Palantir Technologies Inc.",
+      score: 90,
+      index: "quotes",
+    },
+  ],
+});
+
+export const YAHOO_AAPL_NEWS = Object.freeze({
+  news: [
+    {
+      uuid: "aapl-launch",
+      title: "  Apple &amp; partners <b>launch</b> new platform  ",
+      publisher: " Reuters ",
+      link: "https://news.example.test/apple-launch?edition=us#top",
+      providerPublishTime: new Date("2026-07-13T19:30:00.000Z"),
+      relatedTickers: ["AAPL", "MSFT", "AAPL"],
+      thumbnail: { resolutions: [{ url: "https://images.example.test/ignored.jpg" }] },
+    },
+    {
+      uuid: "aapl-launch-duplicate",
+      title: "Duplicate URL should be removed",
+      publisher: "Reuters",
+      link: "https://news.example.test/apple-launch?edition=us#duplicate",
+      providerPublishTime: new Date("2026-07-13T18:30:00.000Z"),
+      relatedTickers: ["AAPL"],
+    },
+    {
+      uuid: "aapl-supply",
+      title: "Apple supply chain expands",
+      publisher: "Bloomberg",
+      link: "https://news.example.test/apple-supply",
+      providerPublishTime: new Date("2026-07-12T11:00:00.000Z"),
+      relatedTickers: ["AAPL"],
+    },
+    {
+      uuid: "too-old",
+      title: "Old coverage",
+      publisher: "Archive",
+      link: "https://news.example.test/old",
+      providerPublishTime: new Date("2026-07-05T19:00:00.000Z"),
+      relatedTickers: ["AAPL"],
+    },
+    {
+      uuid: "unsafe-url",
+      title: "Unsafe URL",
+      publisher: "Publisher",
+      link: "http://news.example.test/unsafe",
+      providerPublishTime: new Date("2026-07-13T17:00:00.000Z"),
+      relatedTickers: ["AAPL"],
+    },
+  ],
+});
+
+export const YAHOO_AAPL_HISTORY = Object.freeze({
+  meta: {
+    symbol: "AAPL",
+    currency: "USD",
+    exchangeTimezoneName: "America/New_York",
+  },
+  quotes: [
+    {
+      date: new Date("2026-07-13T14:30:00.000Z"),
+      open: 315.8,
+      high: 317.2,
+      low: 315.5,
+      close: 316.9,
+      volume: 1_100_000,
+      adjclose: 316.9,
+    },
+    {
+      date: new Date("2026-07-13T14:35:00.000Z"),
+      open: 316.9,
+      high: 318.1,
+      low: 316.7,
+      close: 317.7,
+      volume: 850_000,
+      adjclose: 317.7,
+    },
+  ],
+});
+
+export const YAHOO_AAPL_PROFILE = Object.freeze({
+  price: {
+    symbol: "AAPL",
+    longName: "Apple Inc.",
+    exchangeName: "NasdaqGS",
+    currency: "USD",
+    regularMarketPrice: 317.31,
+  },
+  assetProfile: {
+    country: "United States",
+    sector: "Technology",
+    industry: "Consumer Electronics",
+    longBusinessSummary: "Apple designs and sells consumer technology products.",
+    website: "https://www.apple.com",
+    fullTimeEmployees: 164_000,
+  },
+  summaryDetail: {
+    averageVolume: 54_682_654,
+    marketCap: 4_740_000_000_000,
+    trailingPE: 33.4,
+    forwardPE: 29.2,
+    priceToSalesTrailing12Months: 10.75,
+    dividendYield: 0.0049,
+    fiftyTwoWeekLow: 195.1,
+    fiftyTwoWeekHigh: 323.45,
+  },
+  defaultKeyStatistics: {
+    priceToSalesTrailing12Months: 11.4,
+    priceToBook: 52.1,
+    trailingEps: 9.5,
+    beta: 1.2,
+  },
+  financialData: {
+    currentPrice: 317.31,
+    totalRevenue: 416_000_000_000,
+    revenueGrowth: 0.061,
+    profitMargins: 0.264,
+    freeCashflow: 112_000_000_000,
+    returnOnEquity: 1.71,
+    debtToEquity: 152.4,
+    targetMeanPrice: 330,
+    recommendationKey: "buy",
+    recommendationMean: 1.9,
+    numberOfAnalystOpinions: 42,
+  },
+  calendarEvents: {
+    earnings: { earningsDate: [new Date("2026-07-30T20:00:00.000Z")] },
+  },
+});

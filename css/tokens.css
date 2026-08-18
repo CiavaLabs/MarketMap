@@ -1,0 +1,145 @@
+/* scoped: marketmap-app */
+@layer tokens, base, components, states, motion, utilities;
+
+@layer tokens {
+  .marketmap-app {
+    color-scheme: dark;
+
+    --mm-font-sans: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --mm-text-xs: 0.6875rem;
+    --mm-text-sm: 0.8125rem;
+    --mm-leading-copy: 1.5;
+
+    --mm-content-wide: 82rem;
+    --mm-space-1: 4px;
+    --mm-space-2: 8px;
+    --mm-space-3: 12px;
+    --mm-space-4: 16px;
+    --mm-space-5: 24px;
+    --mm-space-6: 32px;
+
+    --mm-radius-sm: 5px;
+    --mm-radius-md: 8px;
+    --mm-radius-lg: 12px;
+    --mm-radius-panel: var(--mm-radius-md);
+    --mm-radius-overlay: var(--mm-radius-lg);
+    --mm-control-height-touch: 44px;
+
+    --mm-duration-standard: 240ms;
+    --mm-duration-lift: 160ms;
+    --mm-drag-lift: 1.025;
+    --mm-duration-pulse: 3200ms;
+    --mm-ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+    --mm-ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
+
+    --mm-z-base: 1;
+    --mm-z-overlay: 100;
+
+    --mm-control-bg: var(--ds-control-bg, color-mix(in srgb, var(--mm-ink) 4.5%, transparent));
+    --mm-control-bg-hover: var(--ds-control-bg-hover, color-mix(in srgb, var(--mm-ink) 7%, transparent));
+    --mm-control-border: var(--ds-control-border, var(--mm-line));
+    --mm-control-height: var(--ds-control-height-md, 40px);
+    --mm-radius-control: var(--ds-radius-md, var(--mm-radius-md));
+    --mm-radius-pill: var(--ds-radius-control, 999px);
+    --mm-surface-card: var(--ds-surface, var(--mm-surface));
+    --mm-surface-border: var(--ds-surface-border, var(--mm-line));
+  }
+
+  .marketmap-app:not([data-marketmap-theme="light"]) {
+    color-scheme: dark;
+
+    --mm-bg: #11151c;
+    --mm-bg-ambient:
+      radial-gradient(60% 65% at 85% -10%, rgb(110 168 220 / 0.32), transparent 70%),
+      radial-gradient(55% 55% at 6% 100%, rgb(52 201 138 / 0.16), transparent 70%),
+      radial-gradient(50% 55% at 92% 100%, rgb(217 164 65 / 0.12), transparent 72%),
+      linear-gradient(165deg, #171d27 0%, #0f141b 55%, #11151c 100%);
+    --mm-surface: #1a2532;
+    --mm-surface-raised: #1f2b3a;
+
+    --mm-ink: #eef1f5;
+    --mm-ink-soft: #c2cad3;
+    --mm-muted: #8b96a3;
+    --mm-line: rgb(255 255 255 / 0.08);
+    --mm-line-strong: rgb(255 255 255 / 0.14);
+
+    --mm-accent: #6ea8dc;
+    --mm-on-accent: #0d1117;
+    --mm-gain: #34c98a;
+    --mm-loss: #e2705f;
+    --mm-quality-current: #6ea8dc;
+    --mm-quality-delayed: #d9a441;
+    --mm-quality-confirmed: #9b8fd1;
+    --mm-quality-unavailable: #8b96a3;
+    --mm-focus: #6ea8dc;
+
+    --mm-shadow-md: 0 12px 30px rgb(0 0 0 / 0.32);
+    --mm-shadow-lift: drop-shadow(0 18px 30px rgb(0 0 0 / 0.5));
+
+  }
+
+  @media (prefers-color-scheme: light) {
+    .marketmap-app:not([data-marketmap-theme]) {
+      color-scheme: light;
+
+      --mm-bg: #eef3f8;
+      --mm-bg-ambient:
+        radial-gradient(60% 80% at 18% 0%, #cde2f7, transparent 70%),
+        radial-gradient(52% 70% at 88% 18%, #d5f0e2, transparent 70%),
+        radial-gradient(70% 60% at 55% 105%, #e6dcf5, transparent 72%);
+      --mm-surface: #ffffff;
+      --mm-surface-raised: #ffffff;
+
+      --mm-ink: #182430;
+      --mm-ink-soft: #3c4c5c;
+      --mm-muted: #5a6c7c;
+      --mm-line: rgb(24 36 48 / 0.08);
+      --mm-line-strong: rgb(24 36 48 / 0.14);
+
+      --mm-accent: #306b9b;
+      --mm-on-accent: #ffffff;
+      --mm-gain: #197755;
+      --mm-loss: #b74331;
+      --mm-quality-current: #3a7fb5;
+      --mm-quality-delayed: #c98a3e;
+      --mm-quality-confirmed: #8a7cb5;
+      --mm-quality-unavailable: #7c8894;
+      --mm-focus: #306b9b;
+
+      --mm-shadow-md: 0 12px 30px rgb(40 60 90 / 0.12);
+      --mm-shadow-lift: drop-shadow(0 18px 30px rgb(40 60 90 / 0.26));
+    }
+  }
+
+  .marketmap-app[data-marketmap-theme="light"] {
+    color-scheme: light;
+
+    --mm-bg: #eef3f8;
+    --mm-bg-ambient:
+      radial-gradient(60% 80% at 18% 0%, #cde2f7, transparent 70%),
+      radial-gradient(52% 70% at 88% 18%, #d5f0e2, transparent 70%),
+      radial-gradient(70% 60% at 55% 105%, #e6dcf5, transparent 72%);
+    --mm-surface: #ffffff;
+    --mm-surface-raised: #ffffff;
+
+    --mm-ink: #182430;
+    --mm-ink-soft: #3c4c5c;
+    --mm-muted: #5a6c7c;
+    --mm-line: rgb(24 36 48 / 0.08);
+    --mm-line-strong: rgb(24 36 48 / 0.14);
+
+    --mm-accent: #306b9b;
+    --mm-on-accent: #ffffff;
+    --mm-gain: #197755;
+    --mm-loss: #b74331;
+    --mm-quality-current: #3a7fb5;
+    --mm-quality-delayed: #c98a3e;
+    --mm-quality-confirmed: #8a7cb5;
+    --mm-quality-unavailable: #7c8894;
+    --mm-focus: #306b9b;
+
+    --mm-shadow-md: 0 12px 30px rgb(40 60 90 / 0.12);
+    --mm-shadow-lift: drop-shadow(0 18px 30px rgb(40 60 90 / 0.26));
+
+  }
+}

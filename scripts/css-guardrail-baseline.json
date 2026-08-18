@@ -1,0 +1,10 @@
+{
+  "_comment": "Precise reviewed CSS exceptions only. Each entry includes file, selector, property and value where applicable; new exceptions fail until this file is intentionally regenerated and reviewed.",
+  "importantDeclarations": [
+    "css/utilities.css|.marketmap-app :where(*), .marketmap-app :where(*)::before, .marketmap-app :where(*)::after|animation-duration|0.01ms",
+    "css/utilities.css|.marketmap-app :where(*), .marketmap-app :where(*)::before, .marketmap-app :where(*)::after|animation-iteration-count|1",
+    "css/utilities.css|.marketmap-app :where(*), .marketmap-app :where(*)::before, .marketmap-app :where(*)::after|scroll-behavior|auto",
+    "css/utilities.css|.marketmap-app :where(*), .marketmap-app :where(*)::before, .marketmap-app :where(*)::after|transition-duration|0.01ms"
+  ],
+  "idSelectors": []
+}

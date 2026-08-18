@@ -1,0 +1,117 @@
+{
+  "name": "@ciavalabs/marketmap",
+  "version": "0.1.0",
+  "description": "Embeddable market map with a provider-agnostic server API",
+  "author": "Mario Ciavarella (https://github.com/mario-ciava)",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CiavaLabs/MarketMap.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  },
+  "exports": {
+    ".": "./src/index.js",
+    "./experience": "./src/app/createMarketMapExperience.js",
+    "./shell": "./src/app/marketMapShell.js",
+    "./server": "./server/index.js",
+    "./styles.css": "./css/marketmap.css",
+    "./styles.nofonts.css": "./css/marketmap.nofonts.css",
+    "./embed.css": "./css/embed.css",
+    "./embed.nofonts.css": "./css/embed.nofonts.css",
+    "./react": "./dist-react/index.js",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "assets/fonts",
+    "css",
+    "dist-react",
+    "server",
+    "shared",
+    "src",
+    "ARCHITECTURE.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "RUNBOOK.md"
+  ],
+  "scripts": {
+    "dev": "npm run build:react-demo && node server/dev.js",
+    "dev:analytics": "npm run build:react-demo && node server/dev.js --analytics",
+    "start": "node server/dev.js",
+    "build:react-lib": "node scripts/build-react.mjs --lib",
+    "build:react-demo": "node scripts/build-react.mjs --demo",
+    "prepack": "npm run build:react-lib",
+    "test": "npm run check && npm run test:unit",
+    "test:unit": "vitest run",
+    "test:watch": "vitest",
+    "test:browser": "playwright test",
+    "test:browser:quality": "playwright test tests/browser/marketmap.quality.spec.js",
+    "test:performance": "vitest run tests/server/market/loadFaultHarness.test.js",
+    "test:visual": "playwright test tests/browser/marketmap.visual.spec.js",
+    "test:visual:update": "playwright test tests/browser/marketmap.visual.spec.js --update-snapshots=all",
+    "canary:providers": "node scripts/probe-market-providers.mjs",
+    "check": "npm run check:syntax && npm run check:history && npm run check:calendar && npm run check:css && npm run check:contrast && npm run check:boundaries && npm run check:capabilities && npm run check:graph && npm run check:fonts",
+    "check:boundaries": "node scripts/check-boundaries.mjs",
+    "check:capabilities": "node scripts/check-asset-capabilities.mjs",
+    "check:contrast": "node scripts/check-token-contrast.mjs",
+    "check:fonts": "node scripts/check-font-licence.mjs",
+    "check:graph": "node scripts/check-module-graph.mjs",
+    "scope:css": "node scripts/scope-css.mjs",
+    "check:css": "node scripts/check-css-scope.mjs",
+    "check:syntax": "node scripts/check-module-syntax.mjs",
+    "check:history": "node scripts/check-history-pairs.mjs",
+    "check:calendar": "node scripts/check-calendar.mjs"
+  },
+  "peerDependencies": {
+    "@ciavalabs/ds-react": "^0.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@ciavalabs/ds-react": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.12.1",
+    "@base-ui/react": "^1.6.0",
+    "@ciavalabs/ds-react": "^0.2.0",
+    "@playwright/test": "^1.61.1",
+    "@vitest/coverage-v8": "^4.1.10",
+    "esbuild": "^0.28.1",
+    "jsdom": "^29.1.1",
+    "postcss": "^8.5.18",
+    "postcss-prefix-selector": "^2.1.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "vitest": "^4.1.10"
+  },
+  "homepage": "https://github.com/CiavaLabs/MarketMap#readme",
+  "bugs": {
+    "url": "https://github.com/CiavaLabs/MarketMap/issues"
+  },
+  "keywords": [
+    "market-data",
+    "finance",
+    "stocks",
+    "embeddable",
+    "treemap",
+    "yahoo-finance"
+  ]
+}
